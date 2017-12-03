@@ -65,22 +65,22 @@
 				var type = row.insertCell(-1);
 				var cr = row.insertCell(-1);
 				var add = row.insertCell(-1);
+				var number = row.insertCell(-1);
 			
 				name.innerHTML = monsterManual[i].name;
 				type.innerHTML = monsterManual[i].type;
 				cr.innerHTML = monsterManual[i].challenge_rating;
 				add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
+				number.innerHTML = "<p id='" + i + "count'>0</p>;
 			}
 		}
 		
 		function addMonster(index){
 			myMonsters.push(index);
 			
-			var current = document.getElementById("current").innerHTML;
-			var number = myMonsters.length;
-			for (var i = 0; i < number; i++){
-				current = current + monsterManual[myMonsters[i]] + " ";
-			}
+			var count = Number(docuent.getElementById(index + "count").innerHTML);
+			count++
+			document.getElementById(index + "count").innerHTML = count;
 			
 			overwriteCookie();
 		}
