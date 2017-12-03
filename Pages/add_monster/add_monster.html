@@ -37,8 +37,6 @@
 		xhttp.open("GET", "/Files/monstermanual.json", false);
 		xhttp.send(null);
 		var monsterManual = JSON.parse(xhttp.responseText);
-		
-		console.log(monsterManual);
 	
 		function listMonsters(monsterCount) {
 			for(var i = 0; i < monsterCount; i++){
