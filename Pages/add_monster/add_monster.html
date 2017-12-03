@@ -33,7 +33,7 @@
 	
 	<script>
 		var list = document.getElementById("monsterList")
-		var myMonsters = [0];
+		var myMonsters = new Array();
 		
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -74,6 +74,7 @@
 		}
 		
 		function addMonster(index){
+			console.log(index);
 			myMonsters.push[index];
 			console.log(myMonsters);
 			var button = document.getElementById(index).style.visibility;
