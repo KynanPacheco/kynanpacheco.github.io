@@ -33,6 +33,7 @@
 	
 	<script>
 		var list = document.getElementById("monsterList")
+		var myMonsters = [];
 		
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -68,9 +69,21 @@
 				name.innerHTML = monsterManual[i].name;
 				type.innerHTML = monsterManual[i].type;
 				cr.innerHTML = monsterManual[i].challenge_rating;
-				add.innerHTML = "<button onClick='addMonster'>Add</button>";
+				add.innerHTML = "<button onClick='addMonster(this.id)' id='" + i + "'>Add</button>";
 			}
+		}
+		
+		function addMonster(index){
+			myMonster.push[index];
+			console.log(myMonster);
+			var button = getElementById(index).style.visibility;
+			button = "hidden";
 			
+			overwriteCookie();
+		}
+		
+		function overwriteCookie(){
+		
 		}
 		
 		listMonsters(monsterManual.length);
