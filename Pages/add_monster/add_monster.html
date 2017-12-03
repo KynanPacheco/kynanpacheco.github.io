@@ -11,8 +11,6 @@
 	</div>
 	
 	<div class="body">
-		<p>You have the following monsters added:</p>
-		<p id="current">None</p>
 		<form action="" id="filter">
 		Filter By
 		<select name="filterType" form="filter">
@@ -40,23 +38,7 @@
 		xhttp.send(null);
 		var monsterManual = JSON.parse(xhttp.responseText);
 		
-		/*
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				monsterManual = JSON.parse(this.responseText);
-			}
-		}
-		*/
 		console.log(monsterManual);
-		
-		//var xmlhttp = new XMLHttpRequest();
-		//xmlhttp.onreadystatechange = function() {
-		//	if (this.readyState == 4 && this.status == 200) {
-		//		var monsterManual = JSON.parse(this.responseText);
-		//	}
-		//};
-		//xmlhttp.open("GET", "/Files/monstermanual.json", true);
-		//xmlhttp.send();
 	
 		function listMonsters(monsterCount) {
 			for(var i = 0; i < monsterCount; i++){
@@ -82,11 +64,18 @@
 			count++
 			document.getElementById(index + "count").innerHTML = count;
 			
-			overwriteCookie();
+			setCookie(myMonsters, 1);
 		}
 		
-		function overwriteCookie(){
-		
+		function setCookie(cvalue, exdays) {
+			var jsonVal = JSON.stringify(cvalue);
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = "monsters =" + jsonVal + ";" + expires + ";path=/";
+			
+			var cookie = document.cookie;
+			console.log(cookie);
 		}
 		
 		listMonsters(monsterManual.length);
