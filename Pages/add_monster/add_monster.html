@@ -69,7 +69,7 @@
 				name.innerHTML = monsterManual[i].name;
 				type.innerHTML = monsterManual[i].type;
 				cr.innerHTML = monsterManual[i].challenge_rating;
-				add.innerHTML = "<button onClick=' return addMonster(this.id)' id='" + i + "'>Add</button>";
+				add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
 			}
 		}
 		
