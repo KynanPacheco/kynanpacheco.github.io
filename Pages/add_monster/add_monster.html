@@ -35,7 +35,7 @@
 		var list = document.getElementById("monsterList")
 		
 		var xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "/Files/monstermanual.json", true);
+		xhttp.open("GET", "/Files/monstermanual.json", false);
 		xhttp.send(null);
 		var monsterManual = JSON.parse(xhttp.responseText);
 		
