@@ -44,7 +44,9 @@
 				monsterManual = JSON.parse(this.responseText);
 			}
 		}
-	
+		
+		console.log(monsterManual);
+		
 		//var xmlhttp = new XMLHttpRequest();
 		//xmlhttp.onreadystatechange = function() {
 		//	if (this.readyState == 4 && this.status == 200) {
@@ -62,9 +64,9 @@
 				var cr = row.insertCell(-1);
 				var add = row.insertCell(-1);
 			
-				name.innerHTML = monsterManual.name;
-				type.innerHTML = monsterManual.type;
-				cr.innerHTML = monsterManual.challenge_rating;
+				name.innerHTML = monsterManual[i].name;
+				type.innerHTML = monsterManual[i].type;
+				cr.innerHTML = monsterManual[i].challenge_rating;
 				add.innerHTML = "<button onClick='addMonster'>Add</button>";
 			}
 			
