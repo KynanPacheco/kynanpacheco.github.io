@@ -2,6 +2,7 @@
 <head>
 	<link href="/Files/template.css" type="text/css" rel="stylesheet">
 	<title>Bigby's Hand Encounter Builder</title>
+
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 			<option value="type">Type</option>
 		</select>
 		
-		<table>
+		<table id="monsterList">
 			<tr>
 				<th>Name</th>
 				<th>Type</th>
@@ -27,4 +28,33 @@
 			</tr>
 		</table>
 	</div>
+	
+	<script>
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var monsterManual = JSON.parse(this.responseText);
+			}
+		};
+		xmlhttp.open("GET", "/Files/monstermanual.json", true);
+		xmlhttp.send();
+	
+		function listMonster(item, index) {
+			var row = list.insertRow(-1);
+			var name = list.insertCell(-1);
+			var type = list.insertCell(-1);
+			var cr = list.insertCell(-1);
+			var add = list.insertCell(-1);
+			
+			name.innerHTML = monsterManual[index].name;
+			type.innerHTML = monsterManual[index].type;
+			cr.innerHTML = monsterManual[index].challenge_rating
+			add.innerHTML = "<button onClick='addMonster'>Add</button>";
+			
+		}
+		
+		var list = document.getElementById("monsterList")
+		monsterManual.forEach(listMonster)
+	</script>
+	
 </body>
