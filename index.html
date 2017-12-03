@@ -33,6 +33,8 @@
 	</div>
 	
 	<script>
+		var monsterList = document.getElementById("monsterList");
+	
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", false);
 		xhttp.send(null);
@@ -41,7 +43,22 @@
 		var cookie = document.cookie;
 		var monsterJSON = cookie.slice(9);
 		var myMonsters = JSON.parse(monsterJSON);
+		var monsterNumber = myMonsters.length;
 		console.log(myMonsters);
 		
+		function listMonsters(monsterCount) {
+			for(var i = 0; i < monsterCount; i++){
+				var row = list.insertRow(-1);
+				var name = row.insertCell(-1);
+				var type = row.insertCell(-1);
+				var cr = row.insertCell(-1);
+			
+				name.innerHTML = monsterManual[myMonster[i]].name;
+				type.innerHTML = monsterManual[myMonster[i]].type;
+				cr.innerHTML = monsterManual[myMonster[i]].challenge_rating;
+			}
+		}
+		
+		listMonsters(monsterNumber);
 	</script>
 </body>
