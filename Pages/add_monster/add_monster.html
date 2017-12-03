@@ -27,11 +27,13 @@
 				<th></th>
 			</tr>
 		</table>
-		<p>Version 3</p>
+		<p>Version 4</p>
 		<p id="name"></p>
 	</div>
 	
 	<script>
+		var list = document.getElementById("monsterList")
+	
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", true);
 		xhttp.send();
@@ -51,21 +53,22 @@
 		//xmlhttp.open("GET", "/Files/monstermanual.json", true);
 		//xmlhttp.send();
 	
-		function listMonster(item, index) {
-			var row = list.insertRow(-1);
-			var name = list.insertCell(-1);
-			var type = list.insertCell(-1);
-			var cr = list.insertCell(-1);
-			var add = list.insertCell(-1);
+		function listMonsters(monsterCount) {
+			for(var i = 0; i < monsterCount; i++){
+				var row = list.insertRow(-1);
+				var name = list.insertCell(-1);
+				var type = list.insertCell(-1);
+				var cr = list.insertCell(-1);
+				var add = list.insertCell(-1);
 			
-			name.innerHTML = monsterManual[index].name;
-			type.innerHTML = monsterManual[index].type;
-			cr.innerHTML = monsterManual[index].challenge_rating
-			add.innerHTML = "<button onClick='addMonster'>Add</button>";
+				name.innerHTML = monsterManual[i].name;
+				type.innerHTML = monsterManual[i].type;
+				cr.innerHTML = monsterManual[i].challenge_rating;
+				add.innerHTML = "<button onClick='addMonster'>Add</button>";
+			}
 			
 		}
 		
-		var list = document.getElementById("monsterList")
-		monsterManual.forEach(listMonster);
+		listMonsters(monsterManual.length);
 	</script>
 </body>
