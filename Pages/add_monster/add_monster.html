@@ -11,6 +11,8 @@
 	</div>
 	
 	<div class="body">
+		<p>You have the following monsters added:</p>
+		<p id="current">None</p>
 		<form action="" id="filter">
 		Filter By
 		<select name="filterType" form="filter">
@@ -27,8 +29,6 @@
 				<th></th>
 			</tr>
 		</table>
-		<p>Version 4</p>
-		<p id="name"></p>
 	</div>
 	
 	<script>
@@ -74,11 +74,13 @@
 		}
 		
 		function addMonster(index){
-			console.log(index);
 			myMonsters.push(index);
-			console.log(myMonsters);
-			var button = document.getElementById(index).style.visibility;
-			button = "hidden";
+			
+			var current = document.getElementById("current").innerHTML;
+			var number = myMonsters.length;
+			for (var i = 0; i < number; i++){
+				current = current + monsterManual[i] + " ";
+			}
 			
 			overwriteCookie();
 		}
