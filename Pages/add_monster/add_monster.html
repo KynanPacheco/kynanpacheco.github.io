@@ -57,10 +57,10 @@
 		function listMonsters(monsterCount) {
 			for(var i = 0; i < monsterCount; i++){
 				var row = list.insertRow(-1);
-				var name = list.insertCell(-1);
-				var type = list.insertCell(-1);
-				var cr = list.insertCell(-1);
-				var add = list.insertCell(-1);
+				var name = row.insertCell(-1);
+				var type = row.insertCell(-1);
+				var cr = row.insertCell(-1);
+				var add = row.insertCell(-1);
 			
 				name.innerHTML = monsterManual[i].name;
 				type.innerHTML = monsterManual[i].type;
