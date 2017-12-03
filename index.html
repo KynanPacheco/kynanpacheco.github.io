@@ -39,7 +39,7 @@
 		var monsterManual = JSON.parse(xhttp.responseText);
 		
 		var cookie = document.cookie;
-		var monsterJSON = cookie.splice(9);
+		var monsterJSON = cookie.slice(9);
 		var myMonsters = JSON.parse(monsterJSON);
 		console.log(myMonsters);
 		
