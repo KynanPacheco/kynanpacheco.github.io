@@ -16,7 +16,7 @@
 		<p id="cr">NA</p><br>
 		
 		<h3>Monsters</h3>
-		<table>
+		<table id="monsterList">
 			<tr>
 				<th>Name</th>
 				<th>CR</th>
@@ -31,4 +31,17 @@
 			</tr>
 		</table>
 	</div>
+	
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "/Files/monstermanual.json", false);
+		xhttp.send(null);
+		var monsterManual = JSON.parse(xhttp.responseText);
+		
+		var cookie = document.cookie;
+		var monsterJSON = cookie.splice(9);
+		var myMonsters = JSON.parse(monsterJSON);
+		console.log(myMonsters);
+		
+	</script>
 </body>
