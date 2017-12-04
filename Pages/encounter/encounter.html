@@ -11,13 +11,104 @@
 	
 	<div class="body">
 		<div class="left">
-			<table>
-			
+			<table id="activeMonster">
+				<tr>
+					<th id="name"></th>
+					<th id="type"></th>
+					<th id="size"></th>
+					<th id="cr"></th>
+				</tr>
+				<tr>
+					<td><p id="hp">Hp:-10</p><button onClick="addHealth()">+</button><button onClick="subHealth()">-</button></td>
+					<td><p id="movement">Movement:</p></td>
+					<td><p id="ac">AC:</p></td>
+				</tr>
+				<tr>
+					<td><p id="misc"></p></td>
+				</tr>
 			</table>
+			
+			<h3>Player Characters</h3>
+		<table id="playerList">
+			<tr>
+				<th>Name</th>
+				<th>Level<th>
+			</tr>
+		</table>
 		</div>
 		
 		<div class="right">
-		
+			<button onClick = "next(initiativeQueue)">Next Initiative</button>
 		</div>
+		<script>
+			var initiativeQueue = [];
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "/Files/monstermanual.json", false);
+			xhttp.send(null);
+			var monsterManual = JSON.parse(xhttp.responseText);
+		
+			var cookie = document.cookie;
+			var monsterJSON = cookie.slice(9);
+			var myMonsters = JSON.parse(monsterJSON);
+			var monsterNumber = myMonsters.length;
+			console.log(myMonsters);
+		
+			function rollInitiative(index){
+				var roll = Math.floor((Math.random() * 20) + 1);
+				var modifier = Math.floor((Number(monsterManual[index].dexterity) - 10) / 2);
+				var initiative = roll + modifier;
+				initiativeQueue.push({index, initiative}); 
+			}
+			
+			function populateCard(index) {
+				var name = document.getElementById("name").innerHTML;
+				var type = document.getElementById("type").innerHTML;
+				var size = document.getElementById("size").innerHTML;
+				var cr = document.getElementById("cr").innerHTML;
+				var movement = document.getElementById("movement").innerHTML;
+				var ac = document.getElementById("ac").innerHTML;
+				var resistances = document.getElementById("misc").innerHTML;
+				var hp = document.getElementById("hp").innerHTML;
+				
+				var currentHP
+				var maxHP = monsterManual[index].hit_points;
+				
+				if(hp == "Hp:-10"){
+					currentHP = maxHP;
+				}
+				
+				name = monsterManual[index].name;
+				hp = currentHP;
+				type = monsterManual[index].type;
+				size = monsterManual[index].size;
+				cr ="CR " + monsterManual[index].challenge_rating;
+				movement = "Movement: " + monsterManual[index].speed;
+				ac = "AC: " + monsterManual[index].armor_class;
+				misc = "Resistances: " + monsterManual[index].damage_resistances + " Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + " Damage Immunities: " + monsterManual[index].damage_immunities + " Condition Immunities: " + monsterManual[index].condition_immunities + " Senses: " + monsterManual[index].senses + " Languages: " + monsterManual[index].languages;
+			}
+			
+			function comparator(a, b){
+				if (a[1] < b[1]) return 1;
+				if (a[1] > b[1]) return -1;
+				return 0;
+			}
+			
+			function next(initOrder){
+				var current = initOrder.shift();
+				populateCard(current[0]);
+				initOrder.push(current);
+			}
+			
+			for(var i = 0; i < monsterNumber; i++){
+				rollInitiative(myMonsters[i]);
+			}
+			
+			initiativeQueue.sort(comparator);
+			
+			next(initiativeQueue);
+			
+		</script>
+		
 	</div>
 </body>
