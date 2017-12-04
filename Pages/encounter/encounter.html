@@ -59,7 +59,7 @@
 				var modifier = Math.floor((Number(monsterManual[index].dexterity) - 10) / 2);
 				var initiative = roll + modifier;
 				console.log("Initiative is: " + initiative + " The Index of that Monster is: " + index);
-				initiativeQueue.push({index, initiative}); 
+				initiativeQueue.push([index, initiative]); 
 			}
 			
 			function populateCard(index) {
