@@ -24,12 +24,27 @@
 			<tr>
 		</table>
 		
+		<h3>Player Characters</h3>
+		<table id="playerList">
+			<tr>
+				<th>Name</th>
+				<th>Level<th>
+				<th>Initiative</th>
+			</tr>
+			<tr>
+				<td><input id="playerName" type="text" placeholder="Enter your PC name here"></input></td>
+				<td><input id="playerLevel" type="number" placeholder="1"></input></td>
+				<td><input id="playerInitiative" type="number" placeholder="10"></input></td>
+				<td><button onclick="addPlayer(); return false;">Add Player</td>
+			</tr>
+		</table>
 		
 	</div>
 	
 	<script>
 		var monsterList = document.getElementById("monsterList");
-	
+		var playerList = document.getElementById("playerList");
+		
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", false);
 		xhttp.send(null);
@@ -52,6 +67,21 @@
 				type.innerHTML = monsterManual[myMonsters[i]].type;
 				cr.innerHTML = monsterManual[myMonsters[i]].challenge_rating;
 			}
+		}
+		
+		function addPlayer(){
+			var name = document.getElementById("playerName").value;
+			var level = document.getElementById("playerLevel").value;
+			var initiative = document.getElementById("playerInitiative").value;
+			
+			var row = playerList.insertRow(1);
+			var insertName = row.insertCell(-1);
+			var insertLevel = row.insertCell(-1);
+			var insertInitiative = row.insertCell(-1);
+			
+			document.getElementById("playerName").value = "";
+			document.getElementById("playerLevel").value = "";
+			document.getElementById("playerInitiative").value = "";
 		}
 		
 		listMonsters(monsterNumber);
