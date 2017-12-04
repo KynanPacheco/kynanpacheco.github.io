@@ -36,6 +36,7 @@
 		</div>
 		<script>
 			var initiativeQueue = [];
+			var initial = 0;
 			
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -67,8 +68,9 @@
 				var currentHP
 				var maxHP = monsterManual[index].hit_points;
 				
-				if(hp == "Hp:-10"){
+				if(initial < monsterNumber){
 					currentHP = maxHP;
+					initial++;
 				}
 				
 				document.getElementById("name").innerHTML = monsterManual[index].name;
