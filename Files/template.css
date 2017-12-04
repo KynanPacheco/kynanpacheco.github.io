@@ -1,0 +1,49 @@
+.banner {
+	background-color: #2D3142;
+	padding: 5px;
+	box-shadow: 0px 10px #B52835;
+}
+
+.banner img{
+	width: 100px;
+	height: auto;
+	align: right;
+}
+
+body{
+	margin:0px;
+	height:100%;
+	font-family:"Open Sans";
+ 	font-size: 12px;
+	background-color: #BFC0C0;
+}
+
+.body{
+	margin: 10px;
+	padding: 10px;
+	background-color: #FFFFFF;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	height: 100%;
+}
+
+html{
+	margin:0px;
+	height:100%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: none;
+}
