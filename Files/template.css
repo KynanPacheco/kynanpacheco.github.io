@@ -24,7 +24,7 @@ body{
 	background-color: #FFFFFF;
 	border-bottom-right-radius: 25px;
 	border-bottom-left-radius: 25px;
-	height: 100%;
+	min-height: 100%;
 }
 
 html{
