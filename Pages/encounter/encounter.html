@@ -52,13 +52,11 @@
 			var monsterJSON = cookie.slice(9);
 			var myMonsters = JSON.parse(monsterJSON);
 			var monsterNumber = myMonsters.length;
-			console.log(myMonsters);
 		
 			function rollInitiative(index){
 				var roll = Math.floor((Math.random() * 20) + 1);
 				var modifier = Math.floor((Number(monsterManual[index].dexterity) - 10) / 2);
 				var initiative = roll + modifier;
-				console.log("Initiative is: " + initiative + " The Index of that Monster is: " + index);
 				initiativeQueue.push([index, initiative]); 
 			}
 			
@@ -73,23 +71,20 @@
 				var hp = document.getElementById("hp").innerHTML;
 				
 				var currentHP
-				console.log(index);
-				console.log(typeof(index));
-				console.log(monsterManual[index].hit_points);
 				var maxHP = monsterManual[index].hit_points;
 				
 				if(hp == "Hp:-10"){
 					currentHP = maxHP;
 				}
 				
-				name = monsterManual[index].name;
-				hp = currentHP;
-				type = monsterManual[index].type;
-				size = monsterManual[index].size;
-				cr ="CR " + monsterManual[index].challenge_rating;
-				movement = "Movement: " + monsterManual[index].speed;
-				ac = "AC: " + monsterManual[index].armor_class;
-				misc = "Resistances: " + monsterManual[index].damage_resistances + " Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + " Damage Immunities: " + monsterManual[index].damage_immunities + " Condition Immunities: " + monsterManual[index].condition_immunities + " Senses: " + monsterManual[index].senses + " Languages: " + monsterManual[index].languages;
+				document.getElementById("name").innerHTML = monsterManual[index].name;
+				document.getElementById("hp").innerHTML = currentHP;
+				document.getElementById("type").innerHTML = monsterManual[index].type;
+				document.getElementById("size").innerHTML = monsterManual[index].size;
+				document.getElementById("cr").innerHTML ="CR " + monsterManual[index].challenge_rating;
+				document.getElementById("movement").innerHTML = "Movement: " + monsterManual[index].speed;
+				document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
+				document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + " Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + " Damage Immunities: " + monsterManual[index].damage_immunities + " Condition Immunities: " + monsterManual[index].condition_immunities + " Senses: " + monsterManual[index].senses + " Languages: " + monsterManual[index].languages;
 			}
 			
 			function comparator(a, b){
@@ -100,7 +95,6 @@
 			
 			function next(initOrder){
 				var current = initOrder.shift();
-				console.log("Current is: " + current);
 				populateCard(current[0]);
 				initOrder.push(current);
 			}
@@ -109,9 +103,7 @@
 				rollInitiative(myMonsters[i]);
 			}
 			
-			console.log("Initiative Queue before sort is: " + initiativeQueue);
 			initiativeQueue.sort(comparator);
-			console.log("Initiative Queue is: " + initiativeQueue);
 			
 			next(initiativeQueue);
 			
