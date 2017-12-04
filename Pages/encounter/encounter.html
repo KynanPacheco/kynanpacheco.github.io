@@ -99,6 +99,7 @@
 			
 			function next(initOrder){
 				var current = initOrder.shift();
+				console.log("Current is: " + current);
 				populateCard(current[0]);
 				initOrder.push(current);
 			}
