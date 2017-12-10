@@ -59,12 +59,14 @@
 			function addHealth(){
 				if (current[2] == "monster"){
 					current[3]++
+					document.getElementById("hp").innerHTML = current[3];
 				}
 			}
 			
 			function subHealth(){
 				if (current[2] == "monster"){
 					current[3]--
+					document.getElementById("hp").innerHTML = current[3];
 				}
 			}
 		
