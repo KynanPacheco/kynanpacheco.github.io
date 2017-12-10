@@ -81,14 +81,19 @@
 					initial++;
 				}
 				
-				document.getElementById("name").innerHTML = monsterManual[index].name;
-				document.getElementById("hp").innerHTML = currentHP[index];
-				document.getElementById("type").innerHTML = monsterManual[index].type;
-				document.getElementById("size").innerHTML = monsterManual[index].size;
-				document.getElementById("cr").innerHTML ="CR " + monsterManual[index].challenge_rating;
-				document.getElementById("movement").innerHTML = "Movement: " + monsterManual[index].speed;
-				document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
-				document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
+				if(index != -1){
+					document.getElementById("name").innerHTML = monsterManual[index].name;
+					document.getElementById("hp").innerHTML = currentHP[index];
+					document.getElementById("type").innerHTML = monsterManual[index].type;
+					document.getElementById("size").innerHTML = monsterManual[index].size;
+					document.getElementById("cr").innerHTML ="CR " + monsterManual[index].challenge_rating;
+					document.getElementById("movement").innerHTML = "Movement: " + monsterManual[index].speed;
+					document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
+					document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
+				} else {
+					document.getElementById("name").innerHTML = "It is a Players turn";
+					document.getElementById("type").innerHTML = "Player;
+				}
 			}
 			
 			function comparator(a, b){
@@ -99,14 +104,14 @@
 			
 			function next(initOrder){
 				var previous = me - 1;
-				console.log(monsterNumber);
+				console.log(intiativeQueue.length);
 				console.log(me);
 				console.log(previous);
-				if(me == monsterNumber){
+				if(me == initiativeQueue.length){
 					me = 0;
 				}
 				if(me == 0){
-					previous = monsterNumber - 1;
+					previous = intiativeQueue.length - 1;
 					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
 					document.getElementById("turn" + previous).innerHTML = "<p id='turn" + i + "'></p>";
 				} else {
@@ -129,15 +134,22 @@
 			
 			initiativeQueue.sort(comparator);
 			
-			for(i = 0; i < monsterNumber; i++){
+			for(i = 0; i < initiativeQueue.length; i++){
 				var row = initiativeTracker.insertRow(-1);
 				var myTurn = row.insertCell(-1);
 				var turnName = row.insertCell(-1);
 				var initiativeBonus = row.insertCell(-1);
 				
-				turnName.innerHTML = "<p id='name" + i + "'>" + monsterManual[initiativeQueue[i][0]].name + "</p>";
-				initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + initiativeQueue[i][1] + "</p>";
-				myTurn.innerHTML = "<p id='turn" + i + "'></p>";
+				
+				if(intiativeQueue[i][0] != -1){
+					turnName.innerHTML = "<p id='name" + i + "'>" + monsterManual[initiativeQueue[i][0]].name + "</p>";
+					initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + initiativeQueue[i][1] + "</p>";
+					myTurn.innerHTML = "<p id='turn" + i + "'></p>";
+				} else{
+					turnName.innerHTML = "<p id='name" + i + "'>" + initiativeQueue[i][2] + "</p>";
+					initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + initiativeQueue[i][1] + "</p>";
+					myTurn.innerHTML = "<p id='turn" + i + "'></p>";
+				}
 			}
 			
 			document.getElementById("turn0").innerHTML = "<p id='turn0'>-></p>";
