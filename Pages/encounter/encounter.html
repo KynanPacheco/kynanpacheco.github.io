@@ -55,23 +55,29 @@
 			var monsterJSON = cookie.slice(9);
 			var myMonsters = JSON.parse(monsterJSON);
 			var monsterNumber = myMonsters.length;
+			
+			function addHealth(){
+				if (current[2] == "monster"){
+					current[3]++
+				}
+			}
+			
+			function subHealth(){
+				if (current[2] == "monster"){
+					current[3]--
+				}
+			}
 		
 			function rollInitiative(index){
 				var roll = Math.floor((Math.random() * 20) + 1);
 				var modifier = Math.floor((Number(monsterManual[index].dexterity) - 10) / 2);
 				var initiative = roll + modifier;
-				initiativeQueue.push([index, initiative]); 
+				initiativeQueue.push([index, initiative, "monster", Number(monsterManual[index].hit_points); 
 			}
 			
 			function populateCard(index) {
 				if(index != -1){
 					var maxHP = monsterManual[index].hit_points;
-				
-					if(initial < monsterNumber){
-						currentHP[index] = maxHP;
-						initial++;
-					}
-				
 				
 					document.getElementById("name").innerHTML = monsterManual[index].name;
 					document.getElementById("hp").innerHTML = currentHP[index];
