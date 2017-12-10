@@ -103,7 +103,9 @@
 					me = 0;
 				}
 				if(me == 0){
+					previous = monsterNumber - 1;
 					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
+					document.getElementById("turn" + previous).innerHTML = "<p id='turn" + i + "'></p>";
 				} else {
 					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
 					document.getElementById("turn" + previous).innerHTML = "<p id='turn" + i + "'></p>";
