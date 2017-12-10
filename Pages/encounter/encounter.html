@@ -33,6 +33,9 @@
 		
 		<div class="right">
 			<button onClick = "next(initiativeQueue)">Next Initiative</button>
+			<table id="initiativeTracker">
+				
+			</table>
 		</div>
 		<script>
 			var initiativeQueue = [];
@@ -102,7 +105,20 @@
 			
 			initiativeQueue.sort(comparator);
 			
-			next(initiativeQueue);
+			var current = initiativeQueue.shift();
+			populateCard(current[0]);
+			initiativeQueue.push(current);
+			
+			for(i = 0; i < monsterNumber; i++){
+				var row = intiativeTracker.insertRow(-1);
+				var turnName = row.insertCell(-1);
+				var initiativeBonus = row.insertCell(-1);
+				var myTurn = row.inserCell(-1);
+				
+				turnName.innerHTML = "<p id='name" + i = "'>" + monsterManual[initiativeQueue[i][0]].name + "</p>";
+				initiativeBonus.innerHTML = "<p id='roll" + i = "'>" + monsterManual[initiativeQueue[i][1]].name + "</p>";
+				myTurn.innerHTML = "<p id='turn" + i = "'></p>";
+			}
 			
 		</script>
 		
