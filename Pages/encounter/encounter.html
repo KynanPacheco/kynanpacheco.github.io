@@ -117,7 +117,7 @@
 				var myTurn = row.insertCell(-1);
 				
 				turnName.innerHTML = "<p id='name" + i + "'>" + monsterManual[initiativeQueue[i][0]].name + "</p>";
-				initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + monsterManual[initiativeQueue[i][1]].name + "</p>";
+				initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + initiativeQueue[i][1] + "</p>";
 				myTurn.innerHTML = "<p id='turn" + i + "'></p>";
 			}
 			
