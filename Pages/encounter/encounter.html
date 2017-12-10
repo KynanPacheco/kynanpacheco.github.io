@@ -41,6 +41,7 @@
 			var initiativeQueue = [];
 			var initial = 0;
 			var currentHP = [];
+			var initiativeTracker = document.getElementById("initiativeTracker");
 			
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -110,7 +111,7 @@
 			initiativeQueue.push(current);
 			
 			for(i = 0; i < monsterNumber; i++){
-				var row = intiativeTracker.insertRow(-1);
+				var row = initiativeTracker.insertRow(-1);
 				var turnName = row.insertCell(-1);
 				var initiativeBonus = row.insertCell(-1);
 				var myTurn = row.inserCell(-1);
