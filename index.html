@@ -46,6 +46,8 @@
 	<script>
 		var monsterList = document.getElementById("monsterList");
 		var playerList = document.getElementById("playerList");
+		var playerInfo = [];
+		var playerJSON;
 		
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -57,6 +59,12 @@
 		var myMonsters = JSON.parse(monsterJSON);
 		var monsterNumber = myMonsters.length;
 		console.log(myMonsters);
+		
+		function player(name, level, initiative) {
+			this.name = name;
+			this.level = level;
+			this.initiative = initiative;
+		}
 		
 		function listMonsters(monsterCount) {
 			for(var i = 0; i < monsterCount; i++){
@@ -88,6 +96,13 @@
 			insertName.innerHTML = name;
 			insertLevel.innerHTML = level;
 			insertInitiative.innerHTML = initiative;
+			
+			var player = new player(insertName.innerHTML, insertLevel.innerHTML, insertInitiative.innerHTML);
+			playerInfo.push(player);
+			playerJSON = JSON.stringify(playerInfo);
+			sessionStorage.setItem("playerInfo", playerJSON);
+			
+			console.log(JSON.parse(playerJSON));
 		}
 		
 		listMonsters(monsterNumber);
