@@ -64,24 +64,15 @@
 			}
 			
 			function populateCard(index) {
-				var name = document.getElementById("name").innerHTML;
-				var type = document.getElementById("type").innerHTML;
-				var size = document.getElementById("size").innerHTML;
-				var cr = document.getElementById("cr").innerHTML;
-				var movement = document.getElementById("movement").innerHTML;
-				var ac = document.getElementById("ac").innerHTML;
-				var resistances = document.getElementById("misc").innerHTML;
-				var hp = document.getElementById("hp").innerHTML;
-				
-				
-				var maxHP = monsterManual[index].hit_points;
-				
-				if(initial < monsterNumber){
-					currentHP[index] = maxHP;
-					initial++;
-				}
-				
 				if(index != -1){
+					var maxHP = monsterManual[index].hit_points;
+				
+					if(initial < monsterNumber){
+						currentHP[index] = maxHP;
+						initial++;
+					}
+				
+				
 					document.getElementById("name").innerHTML = monsterManual[index].name;
 					document.getElementById("hp").innerHTML = currentHP[index];
 					document.getElementById("type").innerHTML = monsterManual[index].type;
