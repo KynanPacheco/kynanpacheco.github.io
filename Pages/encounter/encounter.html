@@ -95,6 +95,16 @@
 			}
 			
 			function next(initOrder){
+				if(me == monsterNumber){
+					me = 0;
+				}
+				if(me == 0){
+					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
+				} else {
+					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
+					document.getElementById("turn" + me-1).innerHTML = "<p id='turn" + i + "'></p>";
+				}
+				me++
 				var current = initOrder.shift();
 				populateCard(current[0]);
 				initOrder.push(current);
@@ -108,9 +118,9 @@
 			
 			for(i = 0; i < monsterNumber; i++){
 				var row = initiativeTracker.insertRow(-1);
+				var myTurn = row.insertCell(-1);
 				var turnName = row.insertCell(-1);
 				var initiativeBonus = row.insertCell(-1);
-				var myTurn = row.insertCell(-1);
 				
 				turnName.innerHTML = "<p id='name" + i + "'>" + monsterManual[initiativeQueue[i][0]].name + "</p>";
 				initiativeBonus.innerHTML = "<p id='roll" + i + "'>" + initiativeQueue[i][1] + "</p>";
@@ -120,6 +130,7 @@
 			var current = initiativeQueue.shift();
 			populateCard(current[0]);
 			initiativeQueue.push(current);
+			var me = 0
 			
 			for(i = 0; i <monsterNumber; i++){
 				for(var j = 0; j < 2; j++){
