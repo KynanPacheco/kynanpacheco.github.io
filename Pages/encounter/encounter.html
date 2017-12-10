@@ -45,7 +45,6 @@
 			var playerJSON = sessionStorage.getItem("playerInfo")
 			var playerInfo = JSON.parse(playerJSON);
 			var current;
-			console.log(playerInfo);
 			
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -102,9 +101,6 @@
 			
 			function next(initOrder){
 				var previous = me - 1;
-				console.log(initiativeQueue.length);
-				console.log(me);
-				console.log(previous);
 				if(me == initiativeQueue.length){
 					me = 0;
 				}
