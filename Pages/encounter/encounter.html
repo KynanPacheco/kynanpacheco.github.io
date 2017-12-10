@@ -95,8 +95,10 @@
 			}
 			
 			function next(initOrder){
+				var previous = me - 1;
 				console.log(monsterNumber);
 				console.log(me);
+				console.log(previous);
 				if(me == monsterNumber){
 					me = 0;
 				}
@@ -104,7 +106,7 @@
 					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
 				} else {
 					document.getElementById("turn" + me).innerHTML = "<p id='turn" + i + "'>-></p>";
-					document.getElementById("turn" + me-1).innerHTML = "<p id='turn" + i + "'></p>";
+					document.getElementById("turn" + previous).innerHTML = "<p id='turn" + i + "'></p>";
 				}
 				me++
 				var current = initOrder.shift();
