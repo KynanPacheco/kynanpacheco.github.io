@@ -97,8 +97,8 @@
 			insertLevel.innerHTML = level;
 			insertInitiative.innerHTML = initiative;
 			
-			var player = new player(insertName.innerHTML, insertLevel.innerHTML, insertInitiative.innerHTML);
-			playerInfo.push(player);
+			var PC = new player(insertName.innerHTML, insertLevel.innerHTML, insertInitiative.innerHTML);
+			playerInfo.push(PC);
 			playerJSON = JSON.stringify(playerInfo);
 			sessionStorage.setItem("playerInfo", playerJSON);
 			
