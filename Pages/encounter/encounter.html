@@ -42,6 +42,9 @@
 			var initial = 0;
 			var currentHP = [];
 			var initiativeTracker = document.getElementById("initiativeTracker");
+			var playerJSON = sessionStorage.getItem("playerInfo")
+			var playerInfo = JSON.parse(playerJSON);
+			console.log(playerInfo);
 			
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -118,6 +121,10 @@
 			
 			for(var i = 0; i < monsterNumber; i++){
 				rollInitiative(myMonsters[i]);
+			}
+			
+			for(i = 0; i < playerInfo.length; i++){
+				initiativeQueue.push([-1, playerinfo[i].initiative, playerInfo[i].name ])
 			}
 			
 			initiativeQueue.sort(comparator);
