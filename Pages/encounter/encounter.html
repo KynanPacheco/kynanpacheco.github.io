@@ -89,6 +89,22 @@
 					document.getElementById("movement").innerHTML = "Movement: " + monsterManual[index].speed;
 					document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
 					document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
+					
+					for(var i = 0; i < monsterManual[index].actions.length){
+						var ability = activeMonster.insertRow(-1);
+						var abilityName = ability.insertCell(-1);
+						var attackBonus = ability.insertCell(-1);
+						var damageDice = ability.insertCell(-1);
+						var damageBonus = ability.insertCell(-1);
+						var roll = ability.insertCell(-1);
+						
+						abilityName.innerHTML = monsterManual[index].actions[i].name;
+						attackBonus.innerHTML = monsterManual[index].actions[i].attack_bonus;
+						damageDice.innerHTML = monstermanual[index].actions[i].damage_dice;
+						damageBonus.innerHTML = monsterManual[index].actions[i].damage_bonus;
+						roll.innerHTML = "<button id='" + i + "' onclick='attack(this.id, " + index + "); return false;'>
+					}
+					
 				} else {
 					document.getElementById("name").innerHTML = current[2];
 					document.getElementById("type").innerHTML = "Player";
@@ -124,6 +140,10 @@
 				current = initOrder.shift();
 				populateCard(current[0]);
 				initOrder.push(current);
+			}
+			
+			function attack(attack, monster){
+			
 			}
 			
 			for(var i = 0; i < monsterNumber; i++){
