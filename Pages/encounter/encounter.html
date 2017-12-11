@@ -127,7 +127,7 @@
 			}
 			
 			function next(initOrder){
-				for(var i = 0; i < monsterManual[index].actions.length; i++){
+				for(var i = 0; i < monsterManual[current[0]].actions.length; i++){
 					document.getElementById("actionList").deleteRow(-1);
 				}
 				var previous = me - 1;
