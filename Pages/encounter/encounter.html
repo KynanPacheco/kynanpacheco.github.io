@@ -28,6 +28,9 @@
 				</tr>
 			</table>
 			
+			<table id="actionList">
+			
+			</table>
 
 		</div>
 		
@@ -89,7 +92,7 @@
 					document.getElementById("movement").innerHTML = "Movement: " + monsterManual[index].speed;
 					document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
 					document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
-					
+						
 					for(var i = 0; i < monsterManual[index].actions.length; i++){
 						var ability = activeMonster.insertRow(-1);
 						var abilityName = ability.insertCell(-1);
@@ -97,7 +100,7 @@
 						var damageDice = ability.insertCell(-1);
 						var damageBonus = ability.insertCell(-1);
 						var roll = ability.insertCell(-1);
-						
+					
 						abilityName.innerHTML = monsterManual[index].actions[i].name;
 						attackBonus.innerHTML = monsterManual[index].actions[i].attack_bonus;
 						damageDice.innerHTML = monsterManual[index].actions[i].damage_dice;
@@ -124,6 +127,9 @@
 			}
 			
 			function next(initOrder){
+				for(var i = 0; i < monsterManual[index].actions.length; i++){
+					document.getElementById("actionList").deleteRow(-1);
+				}
 				var previous = me - 1;
 				if(me == initiativeQueue.length){
 					me = 0;
