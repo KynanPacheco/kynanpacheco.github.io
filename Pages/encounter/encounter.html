@@ -90,7 +90,7 @@
 					document.getElementById("ac").innerHTML = "AC: " + monsterManual[index].armor_class;
 					document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
 					
-					for(var i = 0; i < monsterManual[index].actions.length){
+					for(var i = 0; i < monsterManual[index].actions.length; i++){
 						var ability = activeMonster.insertRow(-1);
 						var abilityName = ability.insertCell(-1);
 						var attackBonus = ability.insertCell(-1);
