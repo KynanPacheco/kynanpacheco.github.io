@@ -127,9 +127,12 @@
 			}
 			
 			function next(initOrder){
-				for(var i = 0; i < monsterManual[current[0]].actions.length; i++){
-					document.getElementById("actionList").deleteRow(-1);
+				if(current[2] == "monster"){	
+					for(var i = 0; i < monsterManual[current[0]].actions.length; i++){
+						document.getElementById("actionList").deleteRow(-1);
+					}
 				}
+				
 				var previous = me - 1;
 				if(me == initiativeQueue.length){
 					me = 0;
