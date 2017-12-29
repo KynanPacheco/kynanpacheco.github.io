@@ -48,9 +48,10 @@
 			var playerJSON = sessionStorage.getItem("playerInfo")
 			var playerInfo = JSON.parse(playerJSON);
 			var current;
-			var playerNumber = 0
+			var playerNumber = 0;
+			var playerLength = playerInfo.length;
 			
-			if(playerInfo.length != null){
+			if(playerLength != null){
 				playerNumber = playerInfo.length;
 			}
 			
