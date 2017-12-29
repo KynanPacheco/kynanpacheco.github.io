@@ -94,6 +94,9 @@
 					document.getElementById("misc").innerHTML = "Resistances: " + monsterManual[index].damage_resistances + "<br>Vulnerabilities: " + monsterManual[index].damage_vulnerabilities + "<br>Damage Immunities: " + monsterManual[index].damage_immunities + "<br>Condition Immunities: " + monsterManual[index].condition_immunities + "<br>Senses: " + monsterManual[index].senses + "<br>Languages: " + monsterManual[index].languages;
 						
 					for(var i = 0; i < monsterManual[index].actions.length; i++){
+					
+						console.log(monsterManual[index].actions[i].damage_dice);
+						
 						if(monsterManual[index].actions[i].damage_dice != "undefined"){
 							var ability = actionList.insertRow(-1);
 							var abilityName = ability.insertCell(-1);
@@ -109,7 +112,7 @@
 							roll.innerHTML = "<button id='" + i + "' onclick='attack(this.id, " + index + "); return false;'>Roll Attack</button>";
 						}
 						
-						if(monsterManual[index].actions[i].damage_dice != "undefined"){
+						if(monsterManual[index].actions[i].damage_dice == "undefined"){
 							var ability = actionList.insertRow(-1);
 							var abilityName = ability.insertCell(-1);
 							var desc = ability.insertCell(-1);
