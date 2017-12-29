@@ -48,6 +48,11 @@
 			var playerJSON = sessionStorage.getItem("playerInfo")
 			var playerInfo = JSON.parse(playerJSON);
 			var current;
+			var playerNumber = 0
+			
+			if(playerInfo.length != null){
+				playerNumber = playerInfo.length;
+			}
 			
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "/Files/monstermanual.json", false);
@@ -160,7 +165,7 @@
 				rollInitiative(myMonsters[i]);
 			}
 			
-			for(i = 0; i < playerInfo.length; i++){
+			for(i = 0; i < playerNumber; i++){
 				initiativeQueue.push([-1, playerInfo[i].initiative, playerInfo[i].name ])
 			}
 			
