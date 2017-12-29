@@ -97,7 +97,7 @@
 					
 						console.log(monsterManual[index].actions[i].damage_dice);
 						
-						if(monsterManual[index].actions[i].damage_dice != "undefined"){
+						if(monsterManual[index].actions[i].damage_dice != undefined){
 							var ability = actionList.insertRow(-1);
 							var abilityName = ability.insertCell(-1);
 							var attackBonus = ability.insertCell(-1);
@@ -112,7 +112,7 @@
 							roll.innerHTML = "<button id='" + i + "' onclick='attack(this.id, " + index + "); return false;'>Roll Attack</button>";
 						}
 						
-						if(monsterManual[index].actions[i].damage_dice == "undefined"){
+						if(monsterManual[index].actions[i].damage_dice == undefined){
 							var ability = actionList.insertRow(-1);
 							var abilityName = ability.insertCell(-1);
 							var desc = ability.insertCell(-1);
