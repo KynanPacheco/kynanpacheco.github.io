@@ -168,10 +168,25 @@
 			}
 			
 			function attack(attack, monster){
+				var damageTotal = 0;
 				var dice = monsterManual[monster].actions[attack].damage_dice.split("d");
 				var diceNumber = dice[0];
-				var dicetype = dice[1];
-				console.log(dice);
+				var diceType = dice[1];
+				var attackRoll = Math.floor((Math.random() * diceType) + 1)
+				var attackTotal = attackRoll + monsterManual[monster].actions[attack].attack_bonus;
+				
+				var hit = confirm("The monster rolled a " + attackTotal + " to hit, did it hit?");
+				
+				if(hit == true){
+					for(var rolls = 0; rolls < diceNumber; roll++){
+						var roll = Math.floor((Math.random() * diceType) + 1);
+						damageTotal += roll;
+					}
+					damageTotal =+ monsterManual[monster].actions[attack].damage_bonus;
+					alert(total + " points of damage!");
+				} else{
+					alert("Miss!");
+				}
 			}
 			
 			for(var i = 0; i < monsterNumber; i++){
