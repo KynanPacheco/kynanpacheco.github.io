@@ -178,7 +178,7 @@
 				var hit = confirm("The monster rolled a " + attackTotal + " to hit, did it hit?");
 				
 				if(hit == true){
-					for(var rolls = 0; rolls < diceNumber; roll++){
+					for(var rolls = 0; rolls < diceNumber; rolls++){
 						var roll = Math.floor((Math.random() * diceType) + 1);
 						damageTotal += roll;
 					}
