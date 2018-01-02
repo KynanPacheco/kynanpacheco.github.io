@@ -96,9 +96,10 @@
 					for(var i = 0; i < monsterManual[index].actions.length; i++){
 					
 						console.log("Damage dice is: " + monsterManual[index].actions[i].damage_dice + " Attack Bonus is: " + monsterManual[index].actions[i].damage_bonus);
-						console.log(monsterManual[index].actions[i].damage_dice[0]);
+						
 						
 						if(monsterManual[index].actions[i].damage_dice != undefined && monsterManual[index].actions[i].damage_bonus != undefined){
+							console.log(monsterManual[index].actions[i].damage_dice[0]);
 							var ability = actionList.insertRow(-1);
 							var abilityName = ability.insertCell(-1);
 							var attackBonus = ability.insertCell(-1);
