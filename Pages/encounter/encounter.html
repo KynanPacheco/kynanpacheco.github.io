@@ -168,7 +168,10 @@
 			}
 			
 			function attack(attack, monster){
-			
+				var dice = monsterManual[monster].actions[attack].damage_dice.split("d");
+				var diceNumber = dice[0];
+				var dicetype = dice[1];
+				console.log(dice);
 			}
 			
 			for(var i = 0; i < monsterNumber; i++){
