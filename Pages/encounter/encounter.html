@@ -168,18 +168,15 @@
 				var dice = monsterManual[monster].actions[attack].damage_dice.split("d");
 				var diceNumber = dice[0];
 				var diceType = dice[1];
-				console.log("Dice being used: " + diceNumber + "d" + diceType);
 				var attackRoll = Math.floor((Math.random() * 20) + 1)
-				console.log("Base attack roll is: " + attackRoll);
 				var attackTotal = attackRoll + monsterManual[monster].actions[attack].attack_bonus;
-				console.log("Attack roll with mod is: " + attackTotal);
+				
 				
 				var hit = confirm("The monster rolled a " + attackTotal + " to hit, did it hit?");
 				
 				if(hit == true){
 					for(var rolls = 0; rolls < diceNumber; rolls++){
 						var roll = Math.floor((Math.random() * diceType) + 1);
-						console.log("The base damage roll is: " + roll);
 						damageTotal = damageTotal + roll;
 					}
 					damageTotal = damageTotal + monsterManual[monster].actions[attack].damage_bonus;
