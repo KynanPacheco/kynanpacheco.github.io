@@ -95,7 +95,7 @@
 						
 					for(var i = 0; i < monsterManual[index].actions.length; i++){
 					
-						console.log(monsterManual[index].actions[i].damage_dice);
+						console.log("Damage dice is: " + monsterManual[index].actions[i].damage_dice + " Attack Bonus is: " + monsterManual[index].actions[i].damage_bonus);
 						
 						if(monsterManual[index].actions[i].damage_dice != undefined && monsterManual[index].actions[i].damage_bonus != undefined){
 							var ability = actionList.insertRow(-1);
