@@ -86,3 +86,8 @@ table tfoot {
 table tfoot td {
   font-size: 14px;
 }
+
+#title{
+	color: #B52835;
+	display:inline-block;
+}
