@@ -46,7 +46,7 @@
 			var initial = 0;
 			var currentHP = [];
 			var initiativeTracker = document.getElementById("initiativeTracker");
-			var playerJSON = sessionStorage.getItem("playerInfo")
+			var playerJSON = sessionStorage.getItem("playerInfo");
 			var playerInfo = JSON.parse(playerJSON);
 			var current;
 			
@@ -55,8 +55,8 @@
 			xhttp.send(null);
 			var monsterManual = JSON.parse(xhttp.responseText);
 		
-			var cookie = document.cookie;
-			var monsterJSON = cookie.slice(9);
+			//var cookie = document.cookie;
+			var monsterJSON = sessionStorage.getItem("myMonsters");
 			var myMonsters = JSON.parse(monsterJSON);
 			var monsterNumber = myMonsters.length;
 			

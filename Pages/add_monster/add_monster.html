@@ -67,14 +67,17 @@
 		}
 		
 		function setCookie(cvalue, exdays) {
-			var jsonVal = JSON.stringify(cvalue);
-			var d = new Date();
-			d.setTime(d.getTime() + (exdays*24*60*60*1000));
-			var expires = "expires="+ d.toUTCString();
-			document.cookie = "monsters =" + jsonVal + ";" + expires + ";path=/";
+			monsterJSON = JSON.stringify(cvalue);
+			sessionStorage.setItem("myMonsters", monsterJSON);
+		
+			//var jsonVal = JSON.stringify(cvalue);
+			//var d = new Date();
+			//d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			//var expires = "expires="+ d.toUTCString();
+			//document.cookie = "monsters =" + jsonVal + ";" + expires + ";path=/";
 			
-			var cookie = document.cookie;
-			console.log(cookie);
+			//var cookie = document.cookie;
+			//console.log(cookie);
 		}
 		
 		listMonsters(monsterManual.length);
