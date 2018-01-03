@@ -62,7 +62,17 @@
 		var CRNet = 0;
 		
 		for(var i = 0; i < monsterNumber; i++){
-			 CRNet = CRNet + Number(monsterManual[myMonsters[i]].challenge_rating);
+			var currentCR = 0; 
+			if(monsterManual[myMonsters[i]].challenge_rating == "1/4"){
+				currentCR = 0.25;
+			} else if(monsterManual[myMonsters[i]].challenge_rating == "1/8"){
+				currentCR = 0.125;
+			} else if(monsterManual[myMonsters[i]].challenge_rating == "1/2"){
+				currentCR = 0.5;
+			} else {
+				currentCR = Number(monsterManual[myMonsters[i]].challenge_rating)
+			}
+			CRNet = CRNet + Number(monsterManual[myMonsters[i]].challenge_rating);
 		}
 		
 		var averageCR = CRNet / monsterNumber;
