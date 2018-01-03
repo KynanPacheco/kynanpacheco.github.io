@@ -72,10 +72,10 @@
 			} else {
 				currentCR = Number(monsterManual[myMonsters[i]].challenge_rating)
 			}
-			console.log(currentCR);
 			CRNet = CRNet + Number(monsterManual[myMonsters[i]].challenge_rating);
 		}
-		
+		console.log(CRNet);
+		console.log(monsterNumber);
 		var averageCR = CRNet / monsterNumber;
 		document.getElementById("averageCR").innerHTML = "The encounters average CR is: " + averageCR;
 		
