@@ -86,7 +86,7 @@
 		}
 	
 		var averageCR = CRNet / monsterNumber;
-		document.getElementById("averageCR").innerHTML = "The encounters average CR is: " + averageCR;
+		document.getElementById("averageCR").innerHTML = "The encounters average CR is: " + averageCR.toFixed(2);
 		
 		function player(name, level, initiative) {
 			this.name = name;
