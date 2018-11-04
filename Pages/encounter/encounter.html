@@ -51,6 +51,14 @@
 			</table>
 		</div>
 		<script>
+			function isPopulated(obj) {
+				for(var key in obj) {
+					if(obj.hasOwnProperty(key))
+						return false;
+				}
+				return true;
+			}
+			
 			var initiativeQueue = [];
 			var initial = 0;
 			var currentHP = [];
@@ -67,14 +75,11 @@
 			//var cookie = document.cookie;
 			var monsterJSON = sessionStorage.getItem("myMonsters");
 			var myMonsters = JSON.parse(monsterJSON);
-			var monsterNumber = myMonsters.length;
 			
-			function isPopulated(obj) {
-				for(var key in obj) {
-					if(obj.hasOwnProperty(key))
-						return false;
-				}
-				return true;
+			if(isPopulated(myMonsters) == False){
+				var monsterNumber = myMonsters.length;
+			} else{
+				var monsterNumber = 0;
 			}
 			
 			function addHealth(){
@@ -209,8 +214,6 @@
 			}
 			
 			if(isPopulated(playerInfo) == false){
-				console.log(playerInfo);
-				console.log(isPopulated(playerInfo));
 				for(i = 0; i < playerInfo.length; i++){
 					initiativeQueue.push([-1, playerInfo[i].initiative, playerInfo[i].name ])
 				}
