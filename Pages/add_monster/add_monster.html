@@ -23,11 +23,12 @@
 	<div class="body">
 		<form action="" id="filter">
 		Filter By
-		<select name="filterType" form="filter" onchange="sortBy(this.value)" id="filterType">
+		<select name="filterType" form="filter" id="filterType" onChange="formatFilter(this.value)">
 			<option value="cr">CR</option>
 			<option value="name">Name</option>
 			<option value="type">Type</option>
 		</select>
+		<input onchange="sort(filterType.value, this.value)" id="filterInfo" placeholder="Search Criteria"></input>
 		
 		<table id="monsterList">
 			<tr>
@@ -89,8 +90,39 @@
 			//console.log(cookie);
 		}
 		
-		function sortBy(sortType){
+		function formatFilter(fType){
+			var fFormat = document.getElementById("filterInfo");
+			if(fType == "name"){
+				fFormat.type = "text";
+				fFormat.placeholder = "Name";
+		} else if(fType == "type"){
+				fFormat.type = "text";
+				fFormat.placeholder = "Type";
+		} else if(fType == "cr"){
+				fFormat.type = "number";
+				fFormat.placeholder = "1";
+				fFormat.min = "1";
+		}
+		
+		function sort(sortType, sortInfo){
 			console.log(sortType);
+			console.log(sortInfo);
+			/*for(var i = 0; i < monsterCount; i++){
+				if(){
+					var row = list.insertRow(-1);
+					var name = row.insertCell(-1);
+					var type = row.insertCell(-1);
+					var cr = row.insertCell(-1);
+					var add = row.insertCell(-1);
+					var number = row.insertCell(-1);
+			
+					name.innerHTML = monsterManual[i].name;
+					type.innerHTML = monsterManual[i].type;
+					cr.innerHTML = monsterManual[i].challenge_rating;
+					add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
+					number.innerHTML = "<p id='" + i + "count'>0</p>";
+				}
+			}*/
 		}
 		
 		listMonsters(monsterManual.length);
