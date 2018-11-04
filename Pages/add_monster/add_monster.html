@@ -108,22 +108,54 @@
 		function sort(sortType, sortInfo){
 			console.log(sortType);
 			console.log(sortInfo);
-			/*for(var i = 0; i < monsterCount; i++){
-				if(){
-					var row = list.insertRow(-1);
-					var name = row.insertCell(-1);
-					var type = row.insertCell(-1);
-					var cr = row.insertCell(-1);
-					var add = row.insertCell(-1);
-					var number = row.insertCell(-1);
-			
-					name.innerHTML = monsterManual[i].name;
-					type.innerHTML = monsterManual[i].type;
-					cr.innerHTML = monsterManual[i].challenge_rating;
-					add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
-					number.innerHTML = "<p id='" + i + "count'>0</p>";
+			if(sortType == "cr"){
+				for(var i = 0; i < monsterCount; i++){
+					if(sortInfo == monsterManual[i].challenge_rating){
+						var row = list.insertRow(-1);
+						var name = row.insertCell(-1);
+						var type = row.insertCell(-1);
+						var cr = row.insertCell(-1);
+						var add = row.insertCell(-1);
+						var number = row.insertCell(-1);
+				
+						name.innerHTML = monsterManual[i].name;
+						type.innerHTML = monsterManual[i].type;
+						cr.innerHTML = monsterManual[i].challenge_rating;
+						add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
+						number.innerHTML = "<p id='" + i + "count'>0</p>";
+					}
 				}
-			}*/
+			} else if(sortType == "name"){
+				if(monsterManual[i].name.search(sortInfo) != -1){
+					var row = list.insertRow(-1);
+						var name = row.insertCell(-1);
+						var type = row.insertCell(-1);
+						var cr = row.insertCell(-1);
+						var add = row.insertCell(-1);
+						var number = row.insertCell(-1);
+				
+						name.innerHTML = monsterManual[i].name;
+						type.innerHTML = monsterManual[i].type;
+						cr.innerHTML = monsterManual[i].challenge_rating;
+						add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
+						number.innerHTML = "<p id='" + i + "count'>0</p>";
+				}
+			} else if(sortType == "type"){
+				if(monsterManual[i].name.search(sortInfo) != -1){
+					var row = list.insertRow(-1);
+						var name = row.insertCell(-1);
+						var type = row.insertCell(-1);
+						var cr = row.insertCell(-1);
+						var add = row.insertCell(-1);
+						var number = row.insertCell(-1);
+				
+						name.innerHTML = monsterManual[i].name;
+						type.innerHTML = monsterManual[i].type;
+						cr.innerHTML = monsterManual[i].challenge_rating;
+						add.innerHTML = "<button onClick='addMonster(this.id); return false;' id='" + i + "'>Add</button>";
+						number.innerHTML = "<p id='" + i + "count'>0</p>";
+				}
+			}
 		}
 		
 		listMonsters(monsterManual.length);

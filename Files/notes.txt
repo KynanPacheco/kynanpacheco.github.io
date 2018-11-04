@@ -1,0 +1,13 @@
+NOTES:
+
+Function needs to check: sort type, sort info
+
+Process 1: using a loop and an if statement to compare the value of sort info with thats in the monster json would work but would cause entries that are similar but not identical to be discareded. this would be find for things like type and CR but names could be tricky especially with case sensativity. 
+process 2: onChange of the textbox would run through the array via a loop and use the .search method to find certain values in the name or other entries and if the function does not return a -1 then load it into the displayed monster list. 
+
+Prcoess 2 Ref: https://www.w3schools.com/jsref/jsref_search.asp
+
+using if statements it might be possible to use process 1 for CR and then process 2 for name and type. 
+
+Question is it possible to pass another html entities value into a function. will test this via code. WORKS
+
