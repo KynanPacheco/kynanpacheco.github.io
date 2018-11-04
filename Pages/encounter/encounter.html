@@ -69,6 +69,14 @@
 			var myMonsters = JSON.parse(monsterJSON);
 			var monsterNumber = myMonsters.length;
 			
+			function isPopulated(obj) {
+				for(var key in obj) {
+					if(obj.hasOwnProperty(key))
+						return false;
+				}
+				return true;
+			}
+			
 			function addHealth(){
 				if (current[2] == "monster"){
 					current[3]++
@@ -200,8 +208,10 @@
 				rollInitiative(myMonsters[i]);
 			}
 			
-			for(i = 0; i < playerInfo.length; i++){
-				initiativeQueue.push([-1, playerInfo[i].initiative, playerInfo[i].name ])
+			if(isPopulated(playerInfo.length == false){
+				for(i = 0; i < playerInfo.length; i++){
+					initiativeQueue.push([-1, playerInfo[i].initiative, playerInfo[i].name ])
+				}
 			}
 			
 			initiativeQueue.sort(comparator);
