@@ -208,7 +208,9 @@
 				rollInitiative(myMonsters[i]);
 			}
 			
-			if(isPopulated(playerInfo == false)){
+			if(isPopulated(playerInfo) == false){
+				console.log(playerInfo);
+				console.log(isPopulated(playerInfo));
 				for(i = 0; i < playerInfo.length; i++){
 					initiativeQueue.push([-1, playerInfo[i].initiative, playerInfo[i].name ])
 				}
