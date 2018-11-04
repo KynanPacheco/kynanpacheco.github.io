@@ -23,7 +23,7 @@
 	<div class="body">
 		<form action="" id="filter">
 		Filter By
-		<select name="filterType" form="filter">
+		<select name="filterType" form="filter" onchange="sortBy(this.value)" id="filterType">
 			<option value="cr">CR</option>
 			<option value="name">Name</option>
 			<option value="type">Type</option>
@@ -87,6 +87,10 @@
 			
 			//var cookie = document.cookie;
 			//console.log(cookie);
+		}
+		
+		function sortBy(sortType){
+			console.log(sortType);
 		}
 		
 		listMonsters(monsterManual.length);
