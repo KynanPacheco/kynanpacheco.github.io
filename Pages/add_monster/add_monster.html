@@ -107,14 +107,15 @@
 		
 		function sort(sortType, sortInfo){
 			var monsterCount = monsterManual.length;
-			for(var i = 0; i < monsterCount; ++i){
+			console.log(monsterCount);
+			for(var i = 0; i < monsterCount; i--){
 				document.getElementById("monsterList").deleteRow(i);
 			}
 			
 			console.log(sortType);
 			console.log(sortInfo);
 			if(sortType == "cr"){
-				for(var i = -1; i < monsterCount; i++){
+				for(var i = 0; i < monsterCount; i++){
 					if(sortInfo == monsterManual[i].challenge_rating){
 						var row = list.insertRow(-1);
 						var name = row.insertCell(-1);
