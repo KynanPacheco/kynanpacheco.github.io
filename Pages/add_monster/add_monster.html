@@ -106,6 +106,11 @@
 		}
 		
 		function sort(sortType, sortInfo){
+			var monsterCount = monsterManual.length;
+			for(var i = 0; i < monsterCount; i++){
+				document.getElementById("monsterList").deleteRow(i)
+			}
+			
 			console.log(sortType);
 			console.log(sortInfo);
 			if(sortType == "cr"){
